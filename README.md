@@ -58,6 +58,7 @@ What you end up with is a strip of genuinely candid moments. You laughing becaus
 <p align="center">
   <img src="Screenshots/Personalise_Screen_DetailsSection.PNG" width="220" alt="Adding personal details to strip" />
   &nbsp;&nbsp;
+  <img src="Screenshots/FinalStrip.PNG" width="220" alt="Final exported strip" />
 </p>
 
 ## Features
@@ -147,6 +148,12 @@ open Unposed.swiftpm
 ```
 
 A physical iPhone or iPad running iOS 17 or later must be connected to your Mac; select it as the run destination in Xcode before hitting the play button.
+
+### Distributing from GitHub
+
+The repository structure you see on GitHub is exactly what Swift Playgrounds and Xcode need: the top-level `Package.swift` together with the `Sources/Unposed` folder (and the `Screenshots` asset folder). Anyone who clones the repo can open the package directly in Playgrounds or Xcode without any additional modifications. You do **not** need to upload a zip of the package separately unless you want to provide an archive for convenience.
+
+If you *do* choose to ship a zip file, include the `Package.swift`, `Sources/Unposed`, and asset folders in the archive — removing them would make the package unusable. You might also consider leaving a copy of the `.swiftpm` package bundle itself in the repo; Xcode/Playgrounds treat that as a convenient wrapper but it’s not strictly required.
 
 ---
 
