@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Sources/Unposed/Assets.xcassets/AppIcon.appiconset/IMG_20260228_173924.jpg" width="120" style="border-radius: 24px;" />
+  <img src="screenshots/Unpose AppIcon.png" width="140" style="border-radius: 28px;" />
 </p>
 
 <h1 align="center">Unposed</h1>
@@ -13,115 +13,132 @@
 
 ---
 
-## The Problem
+## Why I Built This
 
-We've all been there — someone pulls out a camera and suddenly everyone freezes into the same rehearsed smile. The "photo-ready" face. You tilt your head the right amount, eyes slightly wider, lips curled just so. The result? A technically fine photo that looks like every other photo you've ever taken.
+I kept noticing the same thing — the second a camera comes out, everyone puts on "the face." You know the one. Head tilted, smile rehearsed, eyes a little wider than normal. The photo comes out fine, but it doesn't really look like *you*. It looks like what you think a photo of you should look like.
 
-The best photos I've seen of people — the ones that actually *feel* like them — are never posed. They're mid-laugh, mid-sentence, caught off guard. But you can't really ask someone to "act natural." That defeats the whole purpose.
+The photos of people that I actually love — the ones that feel real — are always the ones where they didn't know the camera was there. Mid-laugh, mid-sentence, caught completely off guard. But here's the thing: you can't just tell someone "act natural." The moment you say that, it's over.
 
-So I built **Unposed**.
+So I thought — what if the camera itself could trick you into forgetting about it?
+
+That's how **Unposed** started.
 
 ## What It Does
 
-Unposed is a photobooth app that tricks you into being yourself.
+Unposed is a photobooth app, but one that actively works against you knowing when the photo is being taken.
 
-You set up your strip — pick a layout, choose how many frames — and hit start. From there, the app takes over. It runs a **misdirection engine** that uses fake countdowns, false shutter sounds, surprise flashes, emoji pop-ups, and long stretches of absolutely nothing... and then captures the photo when you least expect it.
+You pick your strip layout, choose how many frames you want, and hit start. From there, the app takes over. It runs what I call a **misdirection engine** — it throws fake countdowns at you, plays false shutter sounds, flashes the screen, pops up random emojis, sometimes does absolutely nothing for an uncomfortable amount of time... and then takes the actual photo when you've completely given up trying to be ready.
 
-Every session picks a random **mood** (sneaky, chaotic, calm, playful, ghostly) that shapes the entire vibe — how many fakes you'll get, how long the silences are, whether the countdown is telling the truth. No two sessions feel the same. The engine even tracks what tricks it already used so it doesn't repeat itself.
+Each session gets a random **mood** at the start — sneaky, chaotic, calm, playful, ghostly — and that shapes everything about how the misdirection plays out. How many fakes you get, how long the silences last, whether the countdown is even telling the truth. The engine also remembers what tricks it already pulled so it doesn't repeat itself within a session.
 
-The result is a photo strip of genuinely candid moments. You laughing because a countdown just lied to you. You looking confused because nothing happened for 5 seconds. You mid-blink because it caught you right after a fake flash.
+What you end up with is a strip of genuinely candid moments. You laughing because a countdown just lied to you. You looking confused because nothing happened for five seconds straight. You mid-blink because the photo snapped right after a fake flash. Those are the good ones.
 
 <p align="center">
-  <img src="screenshots/strip.png" width="280" alt="Photo strip" />
+  <img src="screenshots/FinalStrip.PNG" width="280" alt="A finished photo strip" />
+</p>
+
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/Intro_Screen.PNG" width="220" alt="Intro screen with curtains" />
+  &nbsp;&nbsp;
+  <img src="screenshots/SetUpYourBoothScreen.PNG" width="220" alt="Booth setup screen" />
+  &nbsp;&nbsp;
+  <img src="screenshots/Camera_Preview_Screen.PNG" width="220" alt="Camera preview with face-tracked props" />
+</p>
+
+<p align="center">
+  <img src="screenshots/Strip_Preview_Screen.PNG" width="220" alt="Strip preview after capture" />
+  &nbsp;&nbsp;
+  <img src="screenshots/PersonaliseScreen.PNG" width="220" alt="Personalisation screen" />
+  &nbsp;&nbsp;
+  <img src="screenshots/PersoinaliseScreen_With Accents.PNG" width="220" alt="Personalisation with accent overlays" />
+</p>
+
+<p align="center">
+  <img src="screenshots/Personalise_Screen_DetailsSection.PNG" width="220" alt="Adding personal details to strip" />
+  &nbsp;&nbsp;
+  <img src="screenshots/FinalStrip.PNG" width="220" alt="Final exported strip" />
 </p>
 
 ## Features
 
-**📸 Misdirection Engine**
-The core of the app. A weighted randomization system that composes unique "beat sequences" for each frame — mixing countdowns, fake shutter sounds, haptic fakes, emoji distractions, and silent ambushes. It picks a session mood at the start and evolves throughout the capture.
+### 📸 Misdirection Engine
+This is the heart of the app. It's a weighted randomisation system that builds unique "beat sequences" for every single frame — mixing real and fake countdowns, shutter sounds, haptic pulses, emoji distractions, screen flashes, and plain silence. A session mood gets picked at the start and the engine evolves its tricks as it goes. I spent most of my time on this because the whole app falls apart if the misdirection feels predictable.
 
-**🎭 Face-Tracked Props**
-Real-time face landmark detection using Vision framework. Pick from built-in props (sunglasses, hats, wigs, a joker face, a masquerade mask) and they track your face live on camera. Masks even align to your eye positions. Props show up in your final photos.
+### 🎭 Face-Tracked Props
+I used Apple's Vision framework for real-time face landmark detection. You can pick from a bunch of built-in props — sunglasses, hats, wigs, a joker face, a masquerade mask — and they track your face live in the camera feed. The masks align to your actual eye positions. And yes, the props show up in your final captured photos too, not just the preview.
 
-**✂️ Prop Scanner**
-Want to use your own object as a prop? Point the camera at anything, snap a photo, and the app uses `VNGenerateForegroundInstanceMaskRequest` to cut it out from the background. Pick where it should anchor (eyes, forehead, nose, chin, hand) and it becomes a face-tracked prop.
+### ✂️ Prop Scanner
+This one was fun to build. You can point the camera at literally any object, take a photo, and the app uses `VNGenerateForegroundInstanceMaskRequest` to isolate it from the background. Then you pick where it should sit on your face (eyes, forehead, nose, chin, or hand) and it becomes a fully face-tracked prop. Want to wear a banana as a hat? Go for it.
 
-**🖼 Strip Layouts**
-Three layout styles:
-- **Vertical** — Classic photo strip (2, 3, or 4 frames)
-- **Square Grid** — 2×2, 2×3, or 2×4 grid layout (4, 6, or 8 frames)
-- **Polaroid** — Single candid shot with that instant-photo feel
+### 🖼 Strip Layouts
+Three styles to choose from:
+- **Vertical** — the classic photo strip look (2, 3, or 4 frames)
+- **Grid** — 2×2, 2×3, or 2×4 grid layouts (4, 6, or 8 frames)
+- **Polaroid** — a single candid shot with that instant-photo vibe
 
-**🎨 Full Customization**
-After capture, customize your strip before saving:
-- Solid background colors or pattern backgrounds
-- Custom colors via the system color picker
-- Accent overlays (hearts, stars, dots, flowers, cosmic, stamps) that scatter around your photos
-- Personal message, date stamp, signature
-- Import your own pattern from your photo library
+### 🎨 Full Personalisation
+Once you've got your photos, you can customise the strip before saving:
+- Pick a solid background colour or use a pattern
+- Choose custom colours through the system colour picker
+- Add accent overlays — hearts, stars, dots, flowers, cosmic particles, stamps — that scatter around your photos
+- Write a personal message, add a date stamp, or drop in a signature
+- Import your own pattern image from your photo library
 
-**🎬 Curtain Transition**
-The app opens with velvet curtains that part when you enter the booth. Because if you're doing a photobooth, commit to the bit.
+### 🎬 Curtain Transition
+When you open the app, velvet curtains part to reveal the booth. It's a small thing, but honestly, if you're building a photobooth app you have to commit to the bit.
 
-<p align="center">
-  <img src="screenshots/home.png" width="220" alt="Home screen" />
-  &nbsp;&nbsp;
-  <img src="screenshots/booth-setup.png" width="220" alt="Booth setup" />
-  &nbsp;&nbsp;
-  <img src="screenshots/camera.png" width="220" alt="Camera screen" />
-</p>
+## How the Misdirection Actually Works
 
-<p align="center">
-  <img src="screenshots/result.png" width="220" alt="Result screen" />
-  &nbsp;&nbsp;
-  <img src="screenshots/customization.png" width="220" alt="Customization screen" />
-  &nbsp;&nbsp;
-  <img src="screenshots/saved-strip.png" width="220" alt="Saved strip" />
-</p>
+I want to explain this part properly because it's not just "random delays." Each frame goes through a full composition pipeline:
+
+1. **Mood selection** — at the start of every session, a mood is randomly picked (sneaky, chaotic, calm, playful, ghostly). This sets all the weights — how likely silence is vs. fakes vs. honest countdowns.
+
+2. **Type selection** — for each frame, the engine picks a misdirection type: silent surprise, lying countdown, fake barrage, delayed nothing, instant ambush, long con, countdown abandoned, or reverse expectation. Types that were used recently get heavily penalised so they don't repeat.
+
+3. **Beat composition** — the chosen type gets expanded into an actual sequence of beats: countdown ticks, fake flashes, fake shutter sounds, haptic pulses, emoji pop-ups, silence gaps. Each type has its own composition logic.
+
+4. **Secondary injection** — extra surprise beats get layered on top for more variety. A random emoji might fire during what seemed like a calm countdown, or a haptic might pulse out of nowhere.
+
+5. **Deduplication** — if the resulting beat sequence looks too similar to a recent one, it gets mutated until it feels different.
+
+6. **Post-capture decoy** — after the *real* photo is taken, sometimes a fake flash or emoji still fires. Just to mess with you for the next frame.
+
+The whole idea is that you genuinely cannot learn the pattern, because there isn't one. Every session is different. Every frame within a session is different.
 
 ## Tech Stack
 
-| What | How |
+Everything is built from scratch using Apple's own frameworks — no third-party dependencies at all.
+
+| Area | What I Used |
 |---|---|
-| UI | SwiftUI, dark theme with a soft pink palette |
-| Camera | AVFoundation (`AVCaptureSession`, photo + video data output) |
-| Face Tracking | Vision framework (`VNDetectFaceLandmarksRequest`) |
-| Hand Detection | Vision framework (`VNDetectHumanHandPoseRequest`) |
-| Subject Isolation | Vision (`VNGenerateForegroundInstanceMaskRequest`) + Core Image masking |
-| Orientation | `AVCaptureDevice.RotationCoordinator` for proper device rotation handling |
-| Haptics | UIKit haptic feedback engine with randomized intensity patterns |
-| Export | UIGraphicsImageRenderer for high-res strip rendering |
-| Persistence | Custom props saved as PNG + JSON metadata to Documents |
+| UI | SwiftUI with a dark theme and soft pink palette |
+| Camera | AVFoundation — `AVCaptureSession` with both photo and video data outputs |
+| Face Tracking | Vision framework — `VNDetectFaceLandmarksRequest` |
+| Hand Detection | Vision framework — `VNDetectHumanHandPoseRequest` |
+| Subject Isolation | Vision — `VNGenerateForegroundInstanceMaskRequest` combined with Core Image masking |
+| Orientation Handling | `AVCaptureDevice.RotationCoordinator` for proper rotation across device orientations |
+| Haptics | UIKit haptic feedback engine with randomised intensity patterns |
+| Strip Export | `UIGraphicsImageRenderer` for high-resolution strip rendering |
+| Persistence | Custom props saved as PNG files with JSON metadata to the Documents directory |
 
-## How the Misdirection Works
+## Swift Student Challenge 2025
 
-The engine isn't just random delays. Each frame goes through a composition pipeline:
-
-1. **Mood Selection** — A session mood is picked at the start (sneaky, chaotic, calm, playful, ghostly). This sets the weights for silence vs. fakes vs. countdowns.
-2. **Type Selection** — A misdirection type is picked per frame (silent surprise, lying countdown, fake barrage, delayed nothing, instant ambush, long con, countdown abandoned, reverse expectation). Recent types are heavily penalized to avoid repetition.
-3. **Beat Composition** — The type is expanded into a sequence of individual beats: countdowns, fake flashes, fake shutter sounds, haptic pulses, emoji pop-ups, silence gaps.
-4. **Secondary Injection** — Extra surprise beats are layered on top for variety.
-5. **Deduplication** — If the resulting sequence matches a recent one, it gets mutated.
-6. **Post-Capture Decoy** — After the *real* capture, sometimes a fake flash or emoji fires to mess with you for next time.
-
-The whole point is that you can never learn the pattern because there isn't one.
-
-## Swift Student Challenge
-
-This app was built as my submission for the **Swift Student Challenge**. The entire project is a Swift Playground app (`.swiftpm`) — no Xcode project, no external dependencies. Everything from the misdirection engine to the face tracking to the strip renderer is built from scratch using Apple frameworks.
+I built this as my submission for the **Swift Student Challenge**. The whole project is a Swift Playground app (`.swiftpm`) — no Xcode project file, no SPM dependencies, no CocoaPods, nothing external. Everything from the misdirection engine to the face tracking pipeline to the strip renderer was written from scratch.
 
 ## Requirements
 
 - iOS 17.0+
-- iPhone or iPad
-- Camera access (it's a photobooth app, after all)
+- iPhone or iPad with a camera
+- Camera permission (kind of essential for a photobooth)
 
-## Running It
+## How to Run
 
-Open `Unposed.swiftpm` in **Swift Playgrounds** on iPad or in **Xcode** on Mac. Build and run on a physical device (camera is required).
+Open `Unposed.swiftpm` in **Swift Playgrounds** on iPad or in **Xcode** on Mac. You'll need to run it on a physical device since the camera is required — the simulator won't cut it.
 
 ---
 
 <p align="center">
-  <sub>Built with way too much coffee and a lot of fake shutter sounds.</sub>
+  <sub>Built with a lot of coffee, a lot of fake shutter sounds, and a deep dislike for posed photos.</sub>
 </p>
