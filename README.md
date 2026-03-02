@@ -58,7 +58,6 @@ What you end up with is a strip of genuinely candid moments. You laughing becaus
 <p align="center">
   <img src="Screenshots/Personalise_Screen_DetailsSection.PNG" width="220" alt="Adding personal details to strip" />
   &nbsp;&nbsp;
-  <img src="Screenshots/FinalStrip.PNG" width="220" alt="Final exported strip" />
 </p>
 
 ## Features
