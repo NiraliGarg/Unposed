@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="screenshots/Unpose AppIcon.png" width="140" style="border-radius: 28px;" />
+  <img src="Screenshots/Unpose AppIcon.png" width="140" style="border-radius: 28px;" />
 </p>
 
 <h1 align="center">Unposed</h1>
@@ -34,31 +34,31 @@ Each session gets a random **mood** at the start — sneaky, chaotic, calm, play
 What you end up with is a strip of genuinely candid moments. You laughing because a countdown just lied to you. You looking confused because nothing happened for five seconds straight. You mid-blink because the photo snapped right after a fake flash. Those are the good ones.
 
 <p align="center">
-  <img src="screenshots/FinalStrip.PNG" width="280" alt="A finished photo strip" />
+  <img src="Screenshots/FinalStrip.PNG" width="280" alt="A finished photo strip" />
 </p>
 
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/Intro_Screen.PNG" width="220" alt="Intro screen with curtains" />
+  <img src="Screenshots/Intro_Screen.PNG" width="220" alt="Intro screen with curtains" />
   &nbsp;&nbsp;
-  <img src="screenshots/SetUpYourBoothScreen.PNG" width="220" alt="Booth setup screen" />
+  <img src="Screenshots/SetUpYourBoothScreen.PNG" width="220" alt="Booth setup screen" />
   &nbsp;&nbsp;
-  <img src="screenshots/Camera_Preview_Screen.PNG" width="220" alt="Camera preview with face-tracked props" />
+  <img src="Screenshots/Camera_Preview_Screen.PNG" width="220" alt="Camera preview with face-tracked props" />
 </p>
 
 <p align="center">
-  <img src="screenshots/Strip_Preview_Screen.PNG" width="220" alt="Strip preview after capture" />
+  <img src="Screenshots/Strip_Preview_Screen.PNG" width="220" alt="Strip preview after capture" />
   &nbsp;&nbsp;
-  <img src="screenshots/PersonaliseScreen.PNG" width="220" alt="Personalisation screen" />
+  <img src="Screenshots/PersonaliseScreen.PNG" width="220" alt="Personalisation screen" />
   &nbsp;&nbsp;
-  <img src="screenshots/PersoinaliseScreen_With Accents.PNG" width="220" alt="Personalisation with accent overlays" />
+  <img src="Screenshots/PersoinaliseScreen_With Accents.PNG" width="220" alt="Personalisation with accent overlays" />
 </p>
 
 <p align="center">
-  <img src="screenshots/Personalise_Screen_DetailsSection.PNG" width="220" alt="Adding personal details to strip" />
+  <img src="Screenshots/Personalise_Screen_DetailsSection.PNG" width="220" alt="Adding personal details to strip" />
   &nbsp;&nbsp;
-  <img src="screenshots/FinalStrip.PNG" width="220" alt="Final exported strip" />
+  <img src="Screenshots/FinalStrip.PNG" width="220" alt="Final exported strip" />
 </p>
 
 ## Features
@@ -135,7 +135,19 @@ I built this as my submission for the **Swift Student Challenge**. The whole pro
 
 ## How to Run
 
-Open `Unposed.swiftpm` in **Swift Playgrounds** on iPad or in **Xcode** on Mac. You'll need to run it on a physical device since the camera is required — the simulator won't cut it.
+Open the `Unposed.swiftpm` package in **Swift Playgrounds** on iPad or in **Xcode** on Mac. You can either double‑click the `Unposed.swiftpm` bundle in Finder, or choose **File → Open** in Xcode and select the `Package.swift`/`Unposed.swiftpm` file. Once the package is open you can build and run it on a physical device (the camera is required; the Simulator cannot be used).
+
+If you prefer the command line, you can also work with the Swift package directly:
+
+```sh
+# generate an Xcode project if you want to inspect it
+swift package generate-xcodeproj
+
+# open the package in Xcode from the terminal
+open Unposed.swiftpm
+```
+
+A physical iPhone or iPad running iOS 17 or later must be connected to your Mac; select it as the run destination in Xcode before hitting the play button.
 
 ---
 
