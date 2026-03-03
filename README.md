@@ -15,11 +15,11 @@
 
 ## Why I Built This
 
-I kept noticing the same thing — the second a camera comes out, everyone puts on "the face." You know the one. Head tilted, smile rehearsed, eyes a little wider than normal. The photo comes out fine, but it doesn't really look like *you*. It looks like what you think a photo of you should look like.
+I kept noticing the same thing, the second a camera comes out, everyone puts on "the face." You know the one. Head tilted, smile rehearsed, eyes a little wider than normal. The photo comes out fine, but it doesn't really look like *you*. It looks like what you think a photo of you should look like.
 
-The photos of people that I actually love — the ones that feel real — are always the ones where they didn't know the camera was there. Mid-laugh, mid-sentence, caught completely off guard. But here's the thing: you can't just tell someone "act natural." The moment you say that, it's over.
+The photos of people that I actually love, the ones that feel real are always the ones where they didn't know the camera was there. Mid-laugh, mid-sentence, caught completely off guard. But here's the thing: you can't just tell someone "act natural." The moment you say that, it's over.
 
-So I thought — what if the camera itself could trick you into forgetting about it?
+So I thought "What if the camera itself could trick you into forgetting about it?"
 
 That's how **Unposed** started.
 
@@ -27,9 +27,9 @@ That's how **Unposed** started.
 
 Unposed is a photobooth app, but one that actively works against you knowing when the photo is being taken.
 
-You pick your strip layout, choose how many frames you want, and hit start. From there, the app takes over. It runs what I call a **misdirection engine** — it throws fake countdowns at you, plays false shutter sounds, flashes the screen, pops up random emojis, sometimes does absolutely nothing for an uncomfortable amount of time... and then takes the actual photo when you've completely given up trying to be ready.
+You pick your strip layout, choose how many frames you want, and hit start. From there, the app takes over. It runs what I call a **misdirection engine** it throws fake countdowns at you, plays false shutter sounds, flashes the screen, pops up random emojis, sometimes does absolutely nothing for an uncomfortable amount of time... and then takes the actual photo when you've completely given up trying to be ready.
 
-Each session gets a random **mood** at the start — sneaky, chaotic, calm, playful, ghostly — and that shapes everything about how the misdirection plays out. How many fakes you get, how long the silences last, whether the countdown is even telling the truth. The engine also remembers what tricks it already pulled so it doesn't repeat itself within a session.
+Each session gets a random **mood** at the start — sneaky, chaotic, calm, playful, ghostly and that shapes everything about how the misdirection plays out. How many fakes you get, how long the silences last, whether the countdown is even telling the truth. The engine also remembers what tricks it already pulled so it doesn't repeat itself within a session.
 
 What you end up with is a strip of genuinely candid moments. You laughing because a countdown just lied to you. You looking confused because nothing happened for five seconds straight. You mid-blink because the photo snapped right after a fake flash. Those are the good ones.
 
@@ -63,10 +63,10 @@ What you end up with is a strip of genuinely candid moments. You laughing becaus
 ## Features
 
 ### 📸 Misdirection Engine
-This is the heart of the app. It's a weighted randomisation system that builds unique "beat sequences" for every single frame — mixing real and fake countdowns, shutter sounds, haptic pulses, emoji distractions, screen flashes, and plain silence. A session mood gets picked at the start and the engine evolves its tricks as it goes. I spent most of my time on this because the whole app falls apart if the misdirection feels predictable.
+This is the heart of the app. It's a weighted randomisation system that builds unique "beat sequences" for every single frame mixing real and fake countdowns, shutter sounds, haptic pulses, emoji distractions, screen flashes, and plain silence. A session mood gets picked at the start and the engine evolves its tricks as it goes. I spent most of my time on this because the whole app falls apart if the misdirection feels predictable.
 
 ### 🎭 Face-Tracked Props
-I used Apple's Vision framework for real-time face landmark detection. You can pick from a bunch of built-in props — sunglasses, hats, wigs, a joker face, a masquerade mask — and they track your face live in the camera feed. The masks align to your actual eye positions. And yes, the props show up in your final captured photos too, not just the preview.
+I used Apple's Vision framework for real-time face landmark detection. You can pick from a bunch of built-in props ike sunglasses, hats, wigs, a joker face, a masquerade mask and they track your face live in the camera feed. The masks align to your actual eye positions. And yes, the props show up in your final captured photos too, not just the preview.
 
 ### ✂️ Prop Scanner
 This one was fun to build. You can point the camera at literally any object, take a photo, and the app uses `VNGenerateForegroundInstanceMaskRequest` to isolate it from the background. Then you pick where it should sit on your face (eyes, forehead, nose, chin, or hand) and it becomes a fully face-tracked prop. Want to wear a banana as a hat? Go for it.
@@ -108,7 +108,7 @@ The whole idea is that you genuinely cannot learn the pattern, because there isn
 
 ## Tech Stack
 
-Everything is built from scratch using Apple's own frameworks — no third-party dependencies at all.
+Everything is built from scratch using Apple's own frameworks, no third-party dependencies at all.
 
 | Area | What I Used |
 |---|---|
@@ -152,7 +152,7 @@ A physical iPhone or iPad running iOS 17 or later must be connected to your Mac
 
 The repository structure you see on GitHub is exactly what Swift Playgrounds and Xcode need: the top-level `Package.swift` together with the `Sources/Unposed` folder (and the `Screenshots` asset folder). Anyone who clones the repo can open the package directly in Playgrounds or Xcode without any additional modifications. You do **not** need to upload a zip of the package separately unless you want to provide an archive for convenience.
 
-If you *do* choose to ship a zip file, include the `Package.swift`, `Sources/Unposed`, and asset folders in the archive — removing them would make the package unusable. You might also consider leaving a copy of the `.swiftpm` package bundle itself in the repo; Xcode/Playgrounds treat that as a convenient wrapper but it’s not strictly required.
+If you *do* choose to ship a zip file, include the `Package.swift`, `Sources/Unposed`, and asset folders in the archive removing them would make the package unusable. You might also consider leaving a copy of the `.swiftpm` package bundle itself in the repo; Xcode/Playgrounds treat that as a convenient wrapper but it’s not strictly required.
 
 ---
 
