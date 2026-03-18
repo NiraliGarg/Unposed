@@ -153,9 +153,3 @@ A physical iPhone or iPad running iOS 17 or later must be connected to your Mac
 The repository structure you see on GitHub is exactly what Swift Playgrounds and Xcode need: the top-level `Package.swift` together with the `Sources/Unposed` folder (and the `Screenshots` asset folder). Anyone who clones the repo can open the package directly in Playgrounds or Xcode without any additional modifications. You do **not** need to upload a zip of the package separately unless you want to provide an archive for convenience.
 
 If you *do* choose to ship a zip file, include the `Package.swift`, `Sources/Unposed`, and asset folders in the archive removing them would make the package unusable. You might also consider leaving a copy of the `.swiftpm` package bundle itself in the repo; Xcode/Playgrounds treat that as a convenient wrapper but it’s not strictly required.
-
----
-
-<p align="center">
-  <sub>Built with a lot of coffee, a lot of fake shutter sounds, and a deep dislike for posed photos.</sub>
-</p>
